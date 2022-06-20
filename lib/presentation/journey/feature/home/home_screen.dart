@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:dsvm_app/presentation/journey/feature/home/widget/list_random_product.dart';
 import 'package:dsvm_app/presentation/themes/theme_text.dart';
+import 'package:dsvm_app/presentation/widgets/custom_scaffold.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -31,16 +32,12 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: AppColors.green,
-        title: Text(
-          CommonUtil.textHelloInHome(),
-          style: AppTextTheme.medium,
-        ),
-        actions: [
-          IconButton(onPressed: _goToCart, icon: Icon(Icons.shopping_cart))
-        ],
+    return CustomScaffold(
+      customAppBar: CustomAppBar(
+        title: CommonUtil.textHelloInHome(),
+        showIconLeft: false,
+        widgetRight:
+            IconButton(onPressed: _goToCart, icon: Icon(Icons.shopping_cart)),
       ),
       body: SingleChildScrollView(
         controller: _controller,

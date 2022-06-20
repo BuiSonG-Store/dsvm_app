@@ -1,8 +1,10 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:dsvm_app/presentation/journey/feature/webview/webview_screen.dart';
 import 'package:dsvm_app/presentation/themes/theme_color.dart';
 import 'package:flutter/material.dart';
 
 import '../../feature/home/home_screen.dart';
+import '../../feature/personal/personal_screen.dart';
 
 class ContainerScreen extends StatefulWidget {
   const ContainerScreen({Key? key}) : super(key: key);
@@ -30,8 +32,8 @@ class _ContainerScreenState extends State<ContainerScreen> {
         controller: pageController,
         children: [
           HomeScreen(),
-          Container(color: AppColors.white),
-          Container(color: AppColors.white),
+          WebViewScreen(),
+          PersonalScreen(),
         ],
       ),
       bottomNavigationBar: CurvedNavigationBar(

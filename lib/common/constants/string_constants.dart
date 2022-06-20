@@ -6,6 +6,8 @@ class StringConst {
   static const String goodEvening = 'Chào buổi tối';
 
   ///
+
+  ///
   static const String versionApp = 'Phiên bản: Thử nghiệm';
   static const String appName = 'Đặc Sản Vùng Miền Việt Nam';
   static const String titleDsvm = 'Đặc Sản Vùng Miền\nSố 1 Việt Nam';
