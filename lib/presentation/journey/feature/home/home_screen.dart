@@ -16,9 +16,7 @@ class HomeScreen extends StatefulWidget {
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
-void _goToCart() {
-
-}
+void _goToCart() {}
 
 class _HomeScreenState extends State<HomeScreen> {
   ScrollController _controller = ScrollController();
@@ -51,6 +49,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   padding: EdgeInsets.all(12),
                   child: CarouselSlider(
                     options: CarouselOptions(
+                      height: 150,
                       initialPage: 0,
                       autoPlay: true,
                       autoPlayAnimationDuration: Duration(seconds: 3),

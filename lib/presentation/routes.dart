@@ -10,6 +10,7 @@ import '../common/utils/log_util.dart';
 import 'injector_container.dart';
 import 'journey/authentication/login/login_screen.dart';
 import 'journey/feature/webview/webview_screen.dart';
+import 'journey/screen/location_shop.dart';
 
 class Routes {
   final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
@@ -37,7 +38,7 @@ class Routes {
       {dynamic arguments}) async {
     return navigatorKey.currentState?.pushNamedAndRemoveUntil(
       routeName,
-          (Route<dynamic> route) => false,
+      (Route<dynamic> route) => false,
       arguments: arguments,
     );
   }
@@ -62,7 +63,11 @@ class Routes {
     switch (settings.name) {
       case RouteName.webViewScreen:
         return CupertinoPageRoute(
-          builder: (_) => WebViewScreen(),
+          builder: (_) => WebViewScreen(
+            argument: settings.arguments != null
+                ? settings.arguments as ArgumentWebViewScreen
+                : null,
+          ),
         );
       case RouteName.splashScreen:
         return CupertinoPageRoute(
@@ -75,6 +80,10 @@ class Routes {
       case RouteName.loginScreen:
         return CupertinoPageRoute(
           builder: (context) => LoginScreen(),
+        );
+      case RouteName.locationShop:
+        return CupertinoPageRoute(
+          builder: (context) => LocationShop(),
         );
 
       default:

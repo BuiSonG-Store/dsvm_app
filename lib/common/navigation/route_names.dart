@@ -4,4 +4,5 @@ class RouteName {
   static const String containerScreen = "containerScreen";
   static const String loginScreen = "loginScreen";
   static const String webViewScreen = "webViewScreen";
+  static const String locationShop = "locationShop";
 }

@@ -5,7 +5,9 @@ import 'package:webview_flutter/webview_flutter.dart';
 import '../../../themes/theme_color.dart';
 
 class WebViewStack extends StatefulWidget {
-  const WebViewStack({required this.controller, Key? key}) : super(key: key);
+  String url;
+  WebViewStack({required this.controller, required this.url, Key? key})
+      : super(key: key);
   final Completer<WebViewController> controller; // Add this attribute
 
   @override
@@ -21,7 +23,7 @@ class _WebViewStackState extends State<WebViewStack> {
       child: Stack(
         children: [
           WebView(
-            initialUrl: 'https://www.facebook.com/bnns.2305/',
+            initialUrl: widget.url,
             onWebViewCreated: (webViewController) {
               widget.controller.complete(webViewController);
             },

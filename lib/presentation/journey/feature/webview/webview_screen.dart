@@ -9,8 +9,15 @@ import '../../../widgets/custom_scaffold.dart';
 import 'menu.dart';
 import 'navigation_controls.dart';
 
+class ArgumentWebViewScreen {
+  String url;
+
+  ArgumentWebViewScreen(this.url);
+}
+
 class WebViewScreen extends StatefulWidget {
-  WebViewScreen({Key? key}) : super(key: key);
+  final ArgumentWebViewScreen? argument;
+  WebViewScreen({Key? key, required this.argument}) : super(key: key);
 
   @override
   State<WebViewScreen> createState() => _WebViewScreenState();
@@ -18,6 +25,14 @@ class WebViewScreen extends StatefulWidget {
 
 class _WebViewScreenState extends State<WebViewScreen> {
   final controller = Completer<WebViewController>();
+  String? linkWeb;
+
+  @override
+  void initState() {
+    linkWeb = widget.argument?.url.replaceAll('\"', '') ?? '';
+
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -39,6 +54,7 @@ class _WebViewScreenState extends State<WebViewScreen> {
         ],
       ),
       body: WebViewStack(
+        url: '${linkWeb ?? ''}',
         controller: controller,
       ),
     );

@@ -33,7 +33,7 @@ class _ContainerScreenState extends State<ContainerScreen> {
         controller: pageController,
         children: [
           HomeScreen(),
-          WebViewScreen(),
+          Container(),
           CartScreen(),
           PersonalScreen(),
         ],
