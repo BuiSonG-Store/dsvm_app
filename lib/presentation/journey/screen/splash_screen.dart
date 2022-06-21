@@ -1,11 +1,28 @@
 import 'package:dsvm_app/common/constants/images_const.dart';
 import 'package:dsvm_app/common/constants/string_constants.dart';
+import 'package:dsvm_app/common/navigation/route_names.dart';
 import 'package:dsvm_app/presentation/themes/theme_text.dart';
 import 'package:flutter/material.dart';
 
-class SplashScreen extends StatelessWidget {
+import '../../routes.dart';
+class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
 
+  @override
+  State<SplashScreen> createState() => _SplashScreenState();
+}
+
+class _SplashScreenState extends State<SplashScreen> {
+  @override
+  void initState() {
+    initData();
+    super.initState();
+  }
+  Future initData()async {
+    Future.delayed(Duration(seconds: 5), (){
+      Routes.instance.navigateAndRemove(RouteName.containerScreen);
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(

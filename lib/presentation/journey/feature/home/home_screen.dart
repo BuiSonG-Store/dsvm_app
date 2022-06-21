@@ -16,7 +16,9 @@ class HomeScreen extends StatefulWidget {
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
-void _goToCart() {}
+void _goToCart() {
+
+}
 
 class _HomeScreenState extends State<HomeScreen> {
   ScrollController _controller = ScrollController();

@@ -1,18 +1,18 @@
-abstract class LoadingState {
+abstract class PopUpState {
   final bool? loading;
   final bool? showPopUp;
 
-  LoadingState({this.loading, this.showPopUp});
+  PopUpState({this.loading, this.showPopUp});
 }
 
-class Loading extends LoadingState {
+class Loading extends PopUpState {
   Loading() : super(loading: true);
 }
 
-class Loaded extends LoadingState {
+class Loaded extends PopUpState {
   Loaded() : super(loading: false);
 }
 
-class ShowPopUpState extends LoadingState {
+class ShowPopUpState extends PopUpState {
   ShowPopUpState(bool? show) : super(showPopUp: show, loading: false);
 }
