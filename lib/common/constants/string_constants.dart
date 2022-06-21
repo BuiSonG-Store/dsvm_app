@@ -1,4 +1,6 @@
 class StringConst {
+  static const String someThingWentWrong =
+      'Đã xảy ra lỗi, chúng tôi đang cố gắng khắc phục sớm nhất có thể';
   /// home const
   static const String goodMorning = 'Chào buổi sáng';
   static const String goodLunch = 'Chào buổi trưa';

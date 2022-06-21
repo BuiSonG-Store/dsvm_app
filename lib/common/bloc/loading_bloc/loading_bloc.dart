@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'loading_event.dart';
 import 'loading_state.dart';
 
-class LoadingBloc extends Bloc<LoadingEvent, LoadingState> {
+class LoadingBloc extends Bloc<LoadingEvent, PopUpState> {
   factory LoadingBloc() => _instance;
 
   LoadingBloc._() : super(Loaded());
@@ -13,7 +13,7 @@ class LoadingBloc extends Bloc<LoadingEvent, LoadingState> {
   static LoadingBloc get instance => _instance;
 
   @override
-  Stream<LoadingState> mapEventToState(LoadingEvent event) async* {
+  Stream<PopUpState> mapEventToState(LoadingEvent event) async* {
     switch (event.runtimeType) {
       case StartLoading:
         yield Loading();

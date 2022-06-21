@@ -35,9 +35,9 @@ class Routes {
 
   Future<dynamic> navigateAndRemove(String routeName,
       {dynamic arguments}) async {
-    return navigatorKey.currentState!.pushNamedAndRemoveUntil(
+    return navigatorKey.currentState?.pushNamedAndRemoveUntil(
       routeName,
-      (Route<dynamic> route) => false,
+          (Route<dynamic> route) => false,
       arguments: arguments,
     );
   }

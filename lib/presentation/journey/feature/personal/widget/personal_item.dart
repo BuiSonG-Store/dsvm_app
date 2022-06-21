@@ -4,19 +4,19 @@ import 'package:dsvm_app/presentation/widgets/custom_gesturedetector.dart';
 import 'package:flutter/material.dart';
 
 class ItemPersonal extends StatelessWidget {
-  String title;
-  String description;
-  String icon;
-  bool showIconRight;
-  bool haveDes;
-  Function onTap;
-  TextStyle? styleTitle;
-  TextStyle? styleDes;
-  double? widthIcon;
-  double? heightIcon;
+  final String title;
+  final String description;
+  final String icon;
+  final bool showIconRight;
+  final bool haveDes;
+  final Function? onTap;
+  final TextStyle? styleTitle;
+  final TextStyle? styleDes;
+  final double? widthIcon;
+  final double? heightIcon;
   ItemPersonal({
     Key? key,
-    required this.onTap,
+    this.onTap,
     required this.title,
     required this.icon,
     this.widthIcon,
@@ -31,7 +31,9 @@ class ItemPersonal extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomGestureDetector(
-      onTap: onTap(),
+      onTap: (){
+        onTap!();
+      },
       child: Container(
         padding: EdgeInsets.all(12),
         decoration: BoxDecoration(
@@ -49,11 +51,14 @@ class ItemPersonal extends StatelessWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  title,
-                  style: styleTitle ?? AppTextTheme.mediumBlack,
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
+                Container(
+                  width: MediaQuery.of(context).size.width - (widthIcon ?? 30) -60,
+                  child: Text(
+                    title,
+                    style: styleTitle ?? AppTextTheme.mediumBlack,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                  ),
                 ),
                 haveDes
                     ? Text(

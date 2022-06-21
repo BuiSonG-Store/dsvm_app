@@ -224,4 +224,5 @@ class AppTextTheme {
   }
 
   static const String font = '';
+  static const String nunito = 'Nunito';
 }

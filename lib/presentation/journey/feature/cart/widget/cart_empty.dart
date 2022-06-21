@@ -28,7 +28,7 @@ class CartEmpty extends StatelessWidget {
           ),
           CustomGestureDetector(
             onTap: () {
-              Routes.instance.navigateAndRemove(RouteName.containerScreen);
+              Routes.instance.navigateTo(RouteName.containerScreen);
             },
             child: Padding(
               padding: EdgeInsets.all(12),
