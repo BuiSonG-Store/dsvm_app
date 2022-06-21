@@ -1,4 +1,5 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:dsvm_app/presentation/journey/feature/cart/cart_screen.dart';
 import 'package:dsvm_app/presentation/journey/feature/webview/webview_screen.dart';
 import 'package:dsvm_app/presentation/themes/theme_color.dart';
 import 'package:flutter/material.dart';
@@ -33,6 +34,7 @@ class _ContainerScreenState extends State<ContainerScreen> {
         children: [
           HomeScreen(),
           WebViewScreen(),
+          CartScreen(),
           PersonalScreen(),
         ],
       ),
@@ -44,6 +46,11 @@ class _ContainerScreenState extends State<ContainerScreen> {
         items: <Widget>[
           Icon(
             Icons.home,
+            size: 30,
+            color: AppColors.white,
+          ),
+          Icon(
+            Icons.list,
             size: 30,
             color: AppColors.white,
           ),

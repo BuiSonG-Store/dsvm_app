@@ -21,6 +21,8 @@ class StringConst {
   static const String inValidPhoneNumber =
       'Có vẻ như số điện thoại không hợp lệ';
   static const String inValidCurrency = 'Số điểm không hợp lệ';
+  static const String cart_empty = 'Bạn chưa có sản phẩm nào trong giỏ hàng !';
+  static const String cart = 'Giỏ hàng';
 
   ///
   static const String show = 'Hiện';

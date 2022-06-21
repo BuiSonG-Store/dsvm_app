@@ -18,6 +18,7 @@ class PersonalScreen extends StatelessWidget {
     Routes.instance.navigateTo(
       RouteName.webViewScreen,
     );
+    print('alo');
   }
 
   @override
