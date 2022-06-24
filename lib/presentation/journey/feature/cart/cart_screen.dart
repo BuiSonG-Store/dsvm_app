@@ -8,6 +8,8 @@ import 'package:dsvm_app/presentation/widgets/custom_gesturedetector.dart';
 import 'package:dsvm_app/presentation/widgets/custom_scaffold.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../common/constants/app_const.dart';
+
 class CartScreen extends StatefulWidget {
   const CartScreen({Key? key}) : super(key: key);
 
@@ -35,16 +37,7 @@ class _CartScreenState extends State<CartScreen> {
       ),
       bottomNavigationBar: Container(
         padding: EdgeInsets.all(12),
-        decoration: BoxDecoration(
-          color: AppColors.white,
-          boxShadow: [
-            BoxShadow(
-              color: AppColors.grey,
-              blurRadius: 4,
-              offset: Offset(0, 0), // Shadow position
-            ),
-          ],
-        ),
+        decoration: CommonConst.decoration,
         child: CustomGestureDetector(
           child: Container(
             padding: EdgeInsets.all(12),

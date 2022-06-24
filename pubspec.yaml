@@ -41,7 +41,7 @@ flutter_icons:
   ios: true
   image_path: "assets/images/logo.jpg"
 flutter_app_name:
-  name: "DSVM"
+  name: "Đặc Sản Vùng Miền - HHT"
 flutter:
 
   uses-material-design: true

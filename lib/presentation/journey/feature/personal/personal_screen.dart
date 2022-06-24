@@ -64,7 +64,7 @@ class PersonalScreen extends StatelessWidget {
             ),
             ItemPersonal(
               icon: IconConst.map,
-              onTap: () {},
+              onTap: _goToLocationShop,
               title: 'Địa chỉ các cửa hàng',
               description: 'Giúp bạn đến cửa hàng của chúng tôi dễ dàng',
             ),
