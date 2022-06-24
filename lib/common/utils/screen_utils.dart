@@ -31,8 +31,8 @@ class DSVMScreenUtil {
 
   static void init(BuildContext context,
       {num width = defaultWidth ?? 0,
-      num height = defaultHeight ?? 0,
-      bool allowFontScaling = false}) {
+        num height = defaultHeight ?? 0,
+        bool allowFontScaling = false}) {
     _instance = DSVMScreenUtil._();
     _instance.uiWidthPx = width;
     _instance.uiHeightPx = height;

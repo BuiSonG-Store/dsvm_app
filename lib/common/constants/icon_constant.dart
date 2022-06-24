@@ -12,4 +12,6 @@ class IconConst {
   static const String logout = '${path}logout.png';
   static const String map = '${path}map.png';
   static const String empty_cart = '${path}empty-cart.png';
+
+  static const String iconSearch = '${path}icon_search.svg';
 }

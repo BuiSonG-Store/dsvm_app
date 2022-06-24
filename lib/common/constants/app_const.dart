@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 
 import '../../presentation/themes/theme_color.dart';
 
+import 'dart:ui';
+
+import '../../presentation/themes/theme_color.dart';
+
 class CommonConst {
   static const double defaultHeightBottomNavigationScreenContainer = 60.0;
   static const double defaultHeightButtonBottom = 48.0;
@@ -26,4 +30,11 @@ class CommonConst {
       ),
     ],
   );
+
+  static List<Color> colorsGradient = [
+    AppColors.primaryColor,
+    AppColors.primaryColor,
+    AppColors.primaryColor,
+    AppColors.primaryColor,
+  ];
 }

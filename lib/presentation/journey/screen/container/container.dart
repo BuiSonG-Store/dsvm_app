@@ -5,6 +5,7 @@ import 'package:dsvm_app/presentation/themes/theme_color.dart';
 import 'package:flutter/material.dart';
 
 import '../../feature/home/home_screen.dart';
+import '../../feature/home/home_screen_v2.dart';
 import '../../feature/personal/personal_screen.dart';
 
 class ContainerScreen extends StatefulWidget {
@@ -32,7 +33,7 @@ class _ContainerScreenState extends State<ContainerScreen> {
         physics: NeverScrollableScrollPhysics(),
         controller: pageController,
         children: [
-          HomeScreen(),
+          HomeScreenV2(),
           Container(),
           CartScreen(),
           PersonalScreen(),

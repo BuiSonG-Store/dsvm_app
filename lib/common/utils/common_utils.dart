@@ -3,8 +3,14 @@ import 'package:dsvm_app/common/constants/string_constants.dart';
 import 'package:flash/flash.dart';
 import 'package:flutter/material.dart';
 import '../../presentation/routes.dart';
+import '../../presentation/themes/theme_color.dart';
 
 class CommonUtil {
+  static bool isPhone() {
+    final data = MediaQueryData.fromWindow(WidgetsBinding.instance!.window);
+    return data.size.shortestSide < 600;
+  }
+
   static String textHelloInHome() {
     int hour = DateTime.now().hour;
     if (hour >= 4 && hour < 12) {
@@ -106,4 +112,74 @@ class CommonUtil {
       );
     }
   }
+  static Gradient getGradient(
+      {List<Color>? colors, GradientDirection? gradientDirection}) {
+    Alignment _getGradientDirection(String key) {
+      final Map<String, Alignment> map = {
+        'begin': Alignment.topCenter,
+        'end': Alignment.bottomCenter
+      };
+      if (gradientDirection == null) {
+        return map[key] ?? Alignment.topCenter;
+      }
+      switch (gradientDirection) {
+        case GradientDirection.ltr:
+          map['begin'] = Alignment.centerLeft;
+          map['end'] = Alignment.centerRight;
+          break;
+        case GradientDirection.rtl:
+          map['begin'] = Alignment.centerRight;
+          map['end'] = Alignment.centerLeft;
+          break;
+        case GradientDirection.ttb:
+          map['begin'] = Alignment.topCenter;
+          map['end'] = Alignment.bottomCenter;
+          break;
+        case GradientDirection.btt:
+          map['begin'] = Alignment.bottomCenter;
+          map['end'] = Alignment.topCenter;
+          break;
+      }
+      return map[key] ?? Alignment.topCenter;
+    }
+
+    return LinearGradient(
+      colors: colors ?? [AppColors.grey5, AppColors.grey5],
+      begin: _getGradientDirection('begin'),
+      end: _getGradientDirection('end'),
+    );
+  }
+
+  static String getTwoCharOfName(String? name) {
+    try {
+      if (name == null || name.isEmpty) {
+        return '';
+      }
+      List<String> listChar = name.trim().split(' ');
+      if (listChar.length == 1) {
+        if (listChar[0].length == 1) {
+          return listChar[0].toUpperCase();
+        } else {
+          return listChar[0].substring(0, 2).toUpperCase();
+        }
+      }
+      return '${listChar[0].substring(0, 1)}${listChar.last.substring(0, 1)}'
+          .toUpperCase();
+    } catch (_) {
+      return name ?? '';
+    }
+  }
+
+  static int countNumberRowOfGridview(List? data) {
+    if (data?.isEmpty ?? true) {
+      return 1;
+    }
+    if (data!.length % 2 == 0) {
+      return data.length ~/ 2;
+    }
+    return (data.length + 1) ~/ 2;
+  }
+
 }
+
+enum GradientDirection { rtl, ltr, ttb, btt }
