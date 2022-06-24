@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:dsvm_app/presentation/journey/feature/home/suggest_today/suggest_today.dart';
 import 'package:dsvm_app/presentation/journey/feature/home/suggest_today/widget/grid_view_product.dart';
+import 'package:dsvm_app/presentation/journey/feature/home/suggest_today/widget/list_view_product.dart';
 import 'package:dsvm_app/presentation/journey/feature/home/widget/home_appbar.dart';
 import 'package:dsvm_app/presentation/widgets/custom_refresh_indicator.dart';
 import 'package:flutter/material.dart';
@@ -110,6 +111,32 @@ class _HomeScreenV2State extends State<HomeScreenV2> {
   //   injector<JobsCubit>().onGetLocationHighApp();
   // }
 
+  List<ProductModelV2> oldModels = [
+    ProductModelV2(),
+    ProductModelV2(),
+    ProductModelV2(),
+    ProductModelV2(),
+    ProductModelV2(),
+    ProductModelV2(),
+    ProductModelV2(),
+    ProductModelV2(),
+    ProductModelV2(),
+    ProductModelV2(),
+    ProductModelV2(),
+    ProductModelV2(),
+    ProductModelV2(),
+    ProductModelV2(),
+    ProductModelV2(),
+    ProductModelV2(),
+    ProductModelV2(),
+    ProductModelV2(),
+    ProductModelV2(),
+    ProductModelV2(),
+    ProductModelV2(),
+    ProductModelV2(),
+    ProductModelV2()
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -130,6 +157,16 @@ class _HomeScreenV2State extends State<HomeScreenV2> {
                 children: [
                   Column(
                     children: [
+                      LayoutDisplayRandomListProduct(
+                        data: oldModels,
+                        labelTop: "Loại sản phẩm 1",
+
+                      ),
+                      LayoutDisplayRandomListProduct(
+                        data: oldModels,
+                        labelTop: "Loại sản phẩm 2",
+
+                      ),
                       SuggestToday(scrollController: _scrollController)
                     ],
                   ),

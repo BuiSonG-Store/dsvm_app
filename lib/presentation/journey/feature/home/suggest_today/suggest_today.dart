@@ -83,6 +83,7 @@ class _SuggestTodayState extends State<SuggestToday> {
             widget.label ?? "Gợi ý hôm nay",
             style: AppTextTheme.medium.copyWith(
               color: AppColors.red,
+              fontSize: 16
             ),
           ),
         ),
@@ -91,6 +92,7 @@ class _SuggestTodayState extends State<SuggestToday> {
             OldGridview(
               models: oldModels,
               controller: widget.scrollController,
+              backgroundColor: AppColors.white,
             )
           ],
         )

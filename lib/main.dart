@@ -1,27 +1,40 @@
-import 'package:animated_splash_screen/animated_splash_screen.dart';
+
 import 'package:dsvm_app/common/bloc/snackbar_bloc/snackbar_bloc.dart';
 import 'package:dsvm_app/common/bloc/snackbar_bloc/snackbar_state.dart';
-import 'package:dsvm_app/common/utils/screen_utils.dart';
-import 'package:dsvm_app/presentation/journey/authentication/login/login_screen.dart';
-import 'package:dsvm_app/presentation/journey/feature/home/home_screen.dart';
+import 'package:dsvm_app/common/global/global_app_cache.dart';
+import 'package:dsvm_app/presentation/injector_container.dart' as di;
 import 'package:dsvm_app/presentation/journey/feature/pop_up/pop_up_layout.dart';
-import 'package:dsvm_app/presentation/journey/screen/container/container.dart';
-import 'package:dsvm_app/presentation/journey/screen/splash_screen.dart';
 import 'package:dsvm_app/presentation/routes.dart';
 import 'package:dsvm_app/presentation/themes/theme_color.dart';
 import 'package:dsvm_app/presentation/themes/theme_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hive/hive.dart';
 
 import 'common/bloc/loading_bloc/loading_bloc.dart';
 import 'common/constants/app_const.dart';
 import 'common/navigation/route_names.dart';
 import 'common/utils/common_utils.dart';
+import 'package:path_provider/path_provider.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  final appDocumentDir = await getApplicationDocumentsDirectory();
+  Hive.init(appDocumentDir.path);
+  Box box = await Hive.openBox('box');
+  GlobalAppCache.instance.box = box;
+  await initInjector();
   runApp(const MyApp());
 }
+
+Future initInjector() async {
+  if (GlobalAppCache.instance.box != null) {
+    await di.init(GlobalAppCache.instance.box!);
+  }
+}
+
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);

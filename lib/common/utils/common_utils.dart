@@ -180,6 +180,14 @@ class CommonUtil {
     return (data.length + 1) ~/ 2;
   }
 
+  static bool isEmptyOrNull(dynamic obj) {
+    try {
+      return obj == null || obj.isEmpty;
+    } catch (e) {
+      return true;
+    }
+  }
+
 }
 
 enum GradientDirection { rtl, ltr, ttb, btt }
