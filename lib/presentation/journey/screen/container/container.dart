@@ -1,12 +1,11 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:dsvm_app/presentation/journey/feature/cart/cart_screen.dart';
-import 'package:dsvm_app/presentation/journey/feature/webview/webview_screen.dart';
 import 'package:dsvm_app/presentation/themes/theme_color.dart';
 import 'package:flutter/material.dart';
 
-import '../../feature/home/home_screen.dart';
 import '../../feature/home/home_screen_v2.dart';
 import '../../feature/personal/personal_screen.dart';
+import '../../feature/regions_product/regions_product_screen.dart';
 
 class ContainerScreen extends StatefulWidget {
   const ContainerScreen({Key? key}) : super(key: key);
@@ -34,7 +33,7 @@ class _ContainerScreenState extends State<ContainerScreen> {
         controller: pageController,
         children: [
           HomeScreenV2(),
-          Container(),
+          RegionsProductScreen(),
           CartScreen(),
           PersonalScreen(),
         ],

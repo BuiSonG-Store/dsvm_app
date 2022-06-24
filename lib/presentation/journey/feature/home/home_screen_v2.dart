@@ -159,13 +159,11 @@ class _HomeScreenV2State extends State<HomeScreenV2> {
                     children: [
                       LayoutDisplayRandomListProduct(
                         data: oldModels,
-                        labelTop: "Loại sản phẩm 1",
-
+                        labelTop: "Sản phẩm HOT",
                       ),
                       LayoutDisplayRandomListProduct(
                         data: oldModels,
-                        labelTop: "Loại sản phẩm 2",
-
+                        labelTop: "Sản phẩm mới",
                       ),
                       SuggestToday(scrollController: _scrollController)
                     ],

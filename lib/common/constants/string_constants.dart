@@ -1,6 +1,7 @@
 class StringConst {
   static const String someThingWentWrong =
       'Đã xảy ra lỗi, chúng tôi đang cố gắng khắc phục sớm nhất có thể';
+
   /// home const
   static const String goodMorning = 'Chào buổi sáng';
   static const String goodLunch = 'Chào buổi trưa';
@@ -30,4 +31,14 @@ class StringConst {
   static const String show = 'Hiện';
   static const String hide = 'Ẩn';
   static const String all = 'Tất cả';
+  static const List<String> listRegions = [
+    "Tây Bắc Bộ",
+    "Đông Bắc Bộ",
+    "Đồng bằng Sông Hồng",
+    "Bắc Trung Bộ",
+    "Nam Trung Bộ",
+    "Tây Nguyên",
+    "Vùng Đông Nam Bộ",
+    "Tây Nam Bộ"
+  ];
 }

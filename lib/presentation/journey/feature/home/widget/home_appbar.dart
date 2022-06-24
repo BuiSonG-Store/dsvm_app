@@ -30,12 +30,11 @@ class _HomeAppBarState extends State<HomeAppBar> {
     super.initState();
   }
 
-
   @override
   Widget build(BuildContext context) {
     double animationVal = 1 - min(_currentPosition / _maxHeightAppBar, 1);
     double visibleMainHeight =
-    max(150.0.h * animationVal, 78.0 + DSVMScreenUtil.statusBarHeight);
+        max(150.0.h * animationVal, 78.0 + DSVMScreenUtil.statusBarHeight);
     LOG.w('animationVal: $animationVal');
     return Container(
       height: visibleMainHeight,
@@ -50,11 +49,9 @@ class _HomeAppBarState extends State<HomeAppBar> {
                   child: Container(
                     decoration: BoxDecoration(
                         gradient: CommonUtil.getGradient(colors: [
-                          Color(0xff4EC6EA),
-                          Color(0xff3FB993),
-                          Color(0xffF1C35C).withOpacity(0.8),
-                          Color(0xffE93C71).withOpacity(0.7),
-                        ])),
+                      AppColors.green,
+                      AppColors.greenText,
+                    ])),
                     width: double.infinity,
                     height: visibleMainHeight - 30,
                   )),
@@ -93,16 +90,9 @@ class _HomeAppBarState extends State<HomeAppBar> {
                         text: TextSpan(
                           children: <TextSpan>[
                             TextSpan(
-                                text:
-                                "Chào",
+                                text: CommonUtil.textHelloInHome(),
                                 style: AppTextTheme.normalWhite
                                     .copyWith(fontSize: 18.0)),
-                            TextSpan(
-                                text:
-                                "Mày",
-                                style: AppTextTheme.normalWhite.copyWith(
-                                    fontSize: 18.0,
-                                    fontWeight: FontWeight.bold)),
                           ],
                           style: DefaultTextStyle.of(context).style,
                         ),

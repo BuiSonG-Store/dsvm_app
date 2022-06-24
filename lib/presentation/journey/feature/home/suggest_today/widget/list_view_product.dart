@@ -25,24 +25,24 @@ class LayoutDisplayRandomListProduct extends StatelessWidget {
 
   const LayoutDisplayRandomListProduct(
       {Key? key,
-        this.onTapSeeAll,
-        this.onItemtap,
-        this.textButton,
-        this.data,
-        this.labelTop,
-        this.lastWidget,
-        this.onTabLastWidget,
-        this.scrollController,
-        this.haveLogoGstore,
-        this.haveSeeMore = true,
-        this.haveBottomSpaceGrey = false,
-        this.idCategory})
+      this.onTapSeeAll,
+      this.onItemtap,
+      this.textButton,
+      this.data,
+      this.labelTop,
+      this.lastWidget,
+      this.onTabLastWidget,
+      this.scrollController,
+      this.haveLogoGstore,
+      this.haveSeeMore = true,
+      this.haveBottomSpaceGrey = false,
+      this.idCategory})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final widgetItem = 182.w;
-    final sizeImage = 162.w;
+    final widgetItem = 178.w;
+    final sizeImage = 178.w;
     if (CommonUtil.isEmptyOrNull(data)) return const SizedBox();
     return Column(
       children: [
@@ -52,25 +52,26 @@ class LayoutDisplayRandomListProduct extends StatelessWidget {
             children: [
               Text(
                 labelTop ?? '',
-                style: AppTextTheme.mediumBlack.copyWith(color: AppColors.green, fontSize: 16),
+                style: AppTextTheme.mediumBlack
+                    .copyWith(color: AppColors.green, fontSize: 16),
               ),
               const Spacer(),
               haveSeeMore
                   ? InkWell(
-                onTap: () {
-                  if (onTapSeeAll != null) {
-                    onTapSeeAll!(idCategory, labelTop);
-                  }
-                },
-                child: Padding(
-                  padding: EdgeInsets.only(
-                      left: 16, right: 16, top: 16, bottom: 12),
-                  child: Text(
-                    "Xem thêm",
-                    style: AppTextTheme.normalBlue,
-                  ),
-                ),
-              )
+                      onTap: () {
+                        if (onTapSeeAll != null) {
+                          onTapSeeAll!(idCategory, labelTop);
+                        }
+                      },
+                      child: Padding(
+                        padding: EdgeInsets.only(
+                            left: 16, right: 16, top: 16, bottom: 12),
+                        child: Text(
+                          "Xem thêm",
+                          style: AppTextTheme.normalBlue,
+                        ),
+                      ),
+                    )
                   : const SizedBox(height: 40),
             ],
           ),
@@ -79,8 +80,7 @@ class LayoutDisplayRandomListProduct extends StatelessWidget {
           width: double.infinity,
           height: 282,
           child: ListView.separated(
-              padding: const EdgeInsets.symmetric(
-                  horizontal: 16),
+              padding: const EdgeInsets.symmetric(horizontal: 16),
               itemBuilder: (context, index) {
                 if (index == (data?.length ?? 0) - 1 &&
                     (data?.length ?? 0) == 12 &&
@@ -91,8 +91,7 @@ class LayoutDisplayRandomListProduct extends StatelessWidget {
                         oldModel: ProductModelV2(),
                         widgetItem: widgetItem,
                         sizeImage: sizeImage,
-                        onItemTap: (model){},
-
+                        onItemTap: (model) {},
                       ),
                       CustomGestureDetector(
                         child: Padding(
@@ -117,8 +116,7 @@ class LayoutDisplayRandomListProduct extends StatelessWidget {
                   oldModel: ProductModelV2(),
                   widgetItem: widgetItem,
                   sizeImage: sizeImage,
-                  onItemTap: (model){},
-
+                  onItemTap: (model) {},
                 );
               },
               scrollDirection: Axis.horizontal,

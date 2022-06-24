@@ -23,16 +23,14 @@ class OldGridview extends StatelessWidget {
     this.backgroundColor = AppColors.grey3,
   }) : super(key: key);
 
-
   @override
   Widget build(BuildContext context) {
-
     final widgetItem = 182.w;
-    final sizeImage = 162.w;
+    final sizeImage = 178.w;
     var _itemHeight = 182.w + 110;
     final heightList = (limitItem
-        ? min(CommonUtil.countNumberRowOfGridview(models), 3)
-        : CommonUtil.countNumberRowOfGridview(models)) *
+            ? min(CommonUtil.countNumberRowOfGridview(models), 3)
+            : CommonUtil.countNumberRowOfGridview(models)) *
         _itemHeight;
     return DecoratedBox(
       decoration: BoxDecoration(
@@ -58,7 +56,7 @@ class OldGridview extends StatelessWidget {
               oldModel: models[index],
               widgetItem: widgetItem,
               sizeImage: sizeImage,
-              onItemTap: (model){},
+              onItemTap: (model) {},
             );
           },
         ),
@@ -67,9 +65,7 @@ class OldGridview extends StatelessWidget {
   }
 }
 
-
-
-class ProductModelV2{
+class ProductModelV2 {
   final String? name;
   ProductModelV2({this.name});
 }
