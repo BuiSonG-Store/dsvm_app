@@ -2,13 +2,10 @@ import 'package:dsvm_app/common/constants/icon_constant.dart';
 import 'package:dsvm_app/common/constants/images_const.dart';
 import 'package:dsvm_app/common/constants/string_constants.dart';
 import 'package:dsvm_app/presentation/journey/feature/personal/widget/personal_item.dart';
-import 'package:dsvm_app/presentation/journey/feature/webview/webview_screen.dart';
 import 'package:dsvm_app/presentation/themes/theme_color.dart';
 import 'package:dsvm_app/presentation/themes/theme_text.dart';
 import 'package:dsvm_app/presentation/widgets/custom_scaffold.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_email_sender/flutter_email_sender.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 import '../../../../common/navigation/route_names.dart';
 import '../../../routes.dart';
