@@ -7,6 +7,8 @@ import 'package:dsvm_app/presentation/themes/theme_color.dart';
 import 'package:dsvm_app/presentation/themes/theme_text.dart';
 import 'package:dsvm_app/presentation/widgets/custom_scaffold.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_email_sender/flutter_email_sender.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../../../common/navigation/route_names.dart';
 import '../../../routes.dart';
@@ -25,6 +27,8 @@ class PersonalScreen extends StatelessWidget {
       RouteName.locationShop,
     );
   }
+
+  void _mailTo() async {}
 
   @override
   Widget build(BuildContext context) {
@@ -67,6 +71,12 @@ class PersonalScreen extends StatelessWidget {
               onTap: _goToLocationShop,
               title: 'Địa chỉ các cửa hàng',
               description: 'Giúp bạn đến cửa hàng của chúng tôi dễ dàng',
+            ),
+            ItemPersonal(
+              icon: IconConst.mail,
+              onTap: _mailTo,
+              title: 'Gửi email cho chúng tôi',
+              description: 'Chọn mục này nếu bạn cần gửi email cho chúng tôi',
             ),
             ItemPersonal(
               icon: IconConst.info,

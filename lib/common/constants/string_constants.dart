@@ -41,4 +41,12 @@ class StringConst {
     "Vùng Đông Nam Bộ",
     "Tây Nam Bộ"
   ];
+  static const List<String> listShop = [
+    "Tổng kho : Lô A52 khu 3ha, Ngõ 36 Đức Diễn, P.Bắc Từ Liêm, Hà Nội",
+    "Kiot 16 Toà Nam, Rice City Linh Đàm, Hoàng Liệt, Hoàng Mai, Hà Nội",
+    "192 Phan Đình Phùng, Thành phố Thái Nguyên, Thái Nguyên",
+    "Cổng chợ chiều, Đ.Nội Thị 2, Ngô Quyền, Tiên Lữ, Hưng Yên",
+    "143 Đ.Trần Đăng Ninh, Hoàng Văn Thụ, Thành phố Lạng Sơn, Lạng Sơn",
+    "Tổ 4 phường Đức Sơn, TP.Bắc Kạn",
+  ];
 }
