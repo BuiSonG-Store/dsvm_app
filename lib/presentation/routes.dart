@@ -9,6 +9,7 @@ import '../common/navigation/route_names.dart';
 import '../common/utils/log_util.dart';
 import 'injector_container.dart';
 import 'journey/authentication/login/login_screen.dart';
+import 'journey/feature/info_personal/infor_personal.dart';
 import 'journey/feature/webview/webview_screen.dart';
 import 'journey/screen/location_shop.dart';
 
@@ -84,6 +85,10 @@ class Routes {
       case RouteName.locationShop:
         return CupertinoPageRoute(
           builder: (context) => LocationShop(),
+        );
+      case RouteName.inforPersonal:
+        return CupertinoPageRoute(
+          builder: (context) => InforPersonal(),
         );
 
       default:

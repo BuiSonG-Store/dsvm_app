@@ -72,6 +72,7 @@ class CustomTextField extends StatelessWidget {
             onEditingComplete: onDone,
             inputFormatters: inputFormattter,
             decoration: InputDecoration(
+              label: Text(hintText!),
               hintText: hintText,
               filled: true,
               suffixIcon: suffixIcon,

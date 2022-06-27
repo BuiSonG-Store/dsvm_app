@@ -14,13 +14,26 @@ class ValidateUtils {
     RegExp regex =
         RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$');
     if (value!.isEmpty) {
-      return 'Please enter password';
+      return 'Vui lòng nhập mật khẩu';
     } else {
       if (!regex.hasMatch(value)) {
-        return 'Enter valid password';
+        return 'Vui lòng nhập mật khẩu';
       } else {
         return null;
       }
+    }
+  }
+
+  static String? isValidPhoneNumber(String? string) {
+    if (string == null || string.isEmpty) {
+      return 'Vui lòng nhập số điện thoại!';
+    }
+
+    const pattern = r'^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$';
+    final regExp = RegExp(pattern);
+
+    if (!regExp.hasMatch(string)) {
+      return 'Vui lòng nhập đúng số điện thoại!';
     }
   }
 }
