@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:dsvm_app/common/navigation/route_names.dart';
 import 'package:dsvm_app/presentation/journey/feature/home/suggest_today/suggest_today.dart';
 import 'package:dsvm_app/presentation/journey/feature/home/suggest_today/widget/grid_view_product.dart';
 import 'package:dsvm_app/presentation/journey/feature/home/suggest_today/widget/list_view_product.dart';
@@ -6,6 +7,8 @@ import 'package:dsvm_app/presentation/journey/feature/home/widget/home_appbar.da
 import 'package:dsvm_app/presentation/widgets/custom_refresh_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../../../common/argument/argument.dart';
+import '../../../routes.dart';
 import '../../../themes/theme_color.dart';
 
 class HomeScreenV2 extends StatefulWidget {
@@ -160,10 +163,30 @@ class _HomeScreenV2State extends State<HomeScreenV2> {
                       LayoutDisplayRandomListProduct(
                         data: oldModels,
                         labelTop: "Sản phẩm HOT",
+                        onTapSeeAll: (_, title) {
+                          Routes.instance.navigateTo(RouteName.allProductScreen,
+                              arguments: ArgumentAllProductCommon(
+                                  title: title,
+                                  url: 'productapp/GetBestBuyNew?'));
+                        },
+                        onItemtap: (value) {
+                          Routes.instance
+                              .navigateTo(RouteName.detailProductScreen);
+                        },
                       ),
                       LayoutDisplayRandomListProduct(
                         data: oldModels,
                         labelTop: "Sản phẩm mới",
+                        onTapSeeAll: (_, title) {
+                          Routes.instance.navigateTo(RouteName.allProductScreen,
+                              arguments: ArgumentAllProductCommon(
+                                  title: title,
+                                  url: 'productapp/GetBestBuyNew?'));
+                        },
+                        onItemtap: (value) {
+                          Routes.instance
+                              .navigateTo(RouteName.detailProductScreen);
+                        },
                       ),
                       SuggestToday(scrollController: _scrollController)
                     ],

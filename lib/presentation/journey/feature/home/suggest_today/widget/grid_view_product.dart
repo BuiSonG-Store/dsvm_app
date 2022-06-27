@@ -1,5 +1,7 @@
 import 'dart:math';
+import 'package:dsvm_app/common/navigation/route_names.dart';
 import 'package:dsvm_app/presentation/journey/feature/home/suggest_today/widget/item_product.dart';
+import 'package:dsvm_app/presentation/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -56,7 +58,9 @@ class OldGridview extends StatelessWidget {
               oldModel: models[index],
               widgetItem: widgetItem,
               sizeImage: sizeImage,
-              onItemTap: (model) {},
+              onItemTap: (value){
+                Routes.instance.navigateTo(RouteName.detailProductScreen);
+              },
             );
           },
         ),

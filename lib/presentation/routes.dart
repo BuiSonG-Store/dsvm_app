@@ -3,12 +3,16 @@ import 'package:dsvm_app/presentation/journey/screen/splash_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../common/argument/argument.dart';
 import '../common/bloc/loading_bloc/loading_bloc.dart';
 import '../common/bloc/loading_bloc/loading_event.dart';
 import '../common/navigation/route_names.dart';
 import '../common/utils/log_util.dart';
 import 'injector_container.dart';
 import 'journey/authentication/login/login_screen.dart';
+import 'journey/feature/all_product/all_product_screen.dart';
+import 'journey/feature/detail_product/detail_product_screen.dart';
+import 'journey/feature/detail_product/widget/photo_list_view_screen.dart';
 import 'journey/feature/webview/webview_screen.dart';
 import 'journey/screen/location_shop.dart';
 
@@ -85,6 +89,27 @@ class Routes {
         return CupertinoPageRoute(
           builder: (context) => LocationShop(),
         );
+
+      case RouteName.allProductScreen:
+        return CupertinoPageRoute(
+          builder: (context) => AllProductScreen(
+            argument: settings.arguments != null
+                ? settings.arguments as ArgumentAllProductCommon
+                : null,
+          ),
+        );
+
+      case RouteName.photoListViewerScreen:
+        return CupertinoPageRoute(
+            builder: (context) => PhotoListViewerScreen(
+              argument: settings.arguments != null
+                  ? settings.arguments as ArgumentPhotoViewerScreen
+                  : null,
+            ));
+
+      case RouteName.detailProductScreen:
+        return CupertinoPageRoute(
+            builder: (context) => DetailProductScreen());
 
       default:
         return _emptyRoute(settings);

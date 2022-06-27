@@ -116,7 +116,7 @@ class LayoutDisplayRandomListProduct extends StatelessWidget {
                   oldModel: ProductModelV2(),
                   widgetItem: widgetItem,
                   sizeImage: sizeImage,
-                  onItemTap: (model) {},
+                  onItemTap: onItemtap,
                 );
               },
               scrollDirection: Axis.horizontal,
