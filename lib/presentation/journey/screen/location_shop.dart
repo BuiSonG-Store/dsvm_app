@@ -6,10 +6,8 @@ import 'package:dsvm_app/presentation/widgets/custom_gesturedetector.dart';
 import 'package:dsvm_app/presentation/widgets/custom_scaffold.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
-
 import '../../../common/constants/app_const.dart';
 import '../../../common/constants/images_const.dart';
-import '../../routes.dart';
 
 class LocationShop extends StatelessWidget {
   const LocationShop({Key? key}) : super(key: key);

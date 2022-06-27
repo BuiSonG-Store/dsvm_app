@@ -1,10 +1,7 @@
 import 'package:dsvm_app/common/constants/icon_constant.dart';
-import 'package:dsvm_app/common/constants/images_const.dart';
 import 'package:dsvm_app/common/constants/string_constants.dart';
 import 'package:dsvm_app/presentation/journey/feature/personal/widget/personal_item.dart';
 import 'package:dsvm_app/presentation/themes/theme_color.dart';
-import 'package:dsvm_app/presentation/themes/theme_text.dart';
-import 'package:dsvm_app/presentation/widgets/custom_gesturedetector.dart';
 import 'package:dsvm_app/presentation/widgets/custom_scaffold.dart';
 import 'package:flutter/material.dart';
 

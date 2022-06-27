@@ -49,15 +49,10 @@ class ItemWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomGestureDetector(
       onTap: () {
-        // if (onItemTap != null) {
-        //   onItemTap!(oldModel);
-        //   return;
-        // }
-        // Routes.instance.navigateTo(RouteName.OldDetailScreen,
-        //     arguments: ArgumentOldNewsDetailScreen(
-        //       id: oldModel.iD,
-        //       liquidation: liquidation,
-        //     ));
+        if (onItemTap != null) {
+          onItemTap!(oldModel);
+          return;
+        }
       },
       child: Container(
         width: widgetItem,

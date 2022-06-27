@@ -12,6 +12,10 @@ class IconConst {
   static const String logout = '${path}logout.png';
   static const String map = '${path}map.png';
   static const String empty_cart = '${path}empty-cart.png';
+  static const String iconClose = '${path}icon_close.svg';
+  static const String iconMoreWhite = '${path}icon_more_white.svg';
+  static const String iconFavorite = '${path}icon_favorite.svg';
+  static const String iconShoppingCart = '${path}icon_shopping_cart.svg';
 
   static const String iconSearch = '${path}icon_search.svg';
   static const String mail = '${path}mail.png';

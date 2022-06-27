@@ -1,8 +1,5 @@
 import 'package:dsvm_app/common/utils/validate_ultils.dart';
-import 'package:dsvm_app/presentation/widgets/text_field/custom_text_field.dart';
 import 'package:flutter/material.dart';
-
-import '../../../../common/constants/string_constants.dart';
 import '../../../widgets/custom_scaffold.dart';
 import '../../../widgets/text_field/custom_textfield_with_label_inside.dart';
 

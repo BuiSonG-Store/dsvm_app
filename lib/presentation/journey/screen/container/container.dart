@@ -55,12 +55,12 @@ class _ContainerScreenState extends State<ContainerScreen> {
             color: AppColors.white,
           ),
           Icon(
-            Icons.list,
+            Icons.shopping_cart,
             size: 30,
             color: AppColors.white,
           ),
           Icon(
-            Icons.compare_arrows,
+            Icons.settings,
             size: 30,
             color: AppColors.white,
           ),

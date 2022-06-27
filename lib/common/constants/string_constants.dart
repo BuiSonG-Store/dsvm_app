@@ -41,6 +41,10 @@ class StringConst {
     "Vùng Đông Nam Bộ",
     "Tây Nam Bộ"
   ];
+
+
+  static const String connectError = "Vui lòng kiểm tra lại kết nối của bạn!";
+  static const String versionLoginInvalid = "Phiên đăng nhập đã hết hạn, hãy đăng nhập lại bạn nhé!";
   static const List<String> listShop = [
     "Tổng kho : Lô A52 khu 3ha, Ngõ 36 Đức Diễn, P.Bắc Từ Liêm, Hà Nội",
     "Kiot 16 Toà Nam, Rice City Linh Đàm, Hoàng Liệt, Hoàng Mai, Hà Nội",
