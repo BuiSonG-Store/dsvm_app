@@ -41,4 +41,8 @@ class StringConst {
     "Vùng Đông Nam Bộ",
     "Tây Nam Bộ"
   ];
+
+
+  static const String connectError = "Vui lòng kiểm tra lại kết nối của bạn!";
+  static const String versionLoginInvalid = "Phiên đăng nhập đã hết hạn, hãy đăng nhập lại bạn nhé!";
 }
