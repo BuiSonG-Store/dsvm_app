@@ -1,14 +1,13 @@
 import 'dart:core';
 
+import 'package:dsvm_app/common/constants/string_constants.dart';
 import 'package:dsvm_app/presentation/themes/theme_text.dart';
 import 'package:dsvm_app/presentation/widgets/custom_gesturedetector.dart';
 import 'package:dsvm_app/presentation/widgets/custom_scaffold.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
-
 import '../../../common/constants/app_const.dart';
 import '../../../common/constants/images_const.dart';
-import '../../routes.dart';
 
 class LocationShop extends StatelessWidget {
   const LocationShop({Key? key}) : super(key: key);
@@ -31,22 +30,27 @@ class LocationShop extends StatelessWidget {
             ),
             _Item(
               url: 'https://goo.gl/maps/oHD3Ap4BtkA5cTLr8',
-              name:
-                  'Tổng kho : Lô A52 khu 3ha, Ngõ 36 Đức Diễn, P.Bắc Từ Liêm, Hà Nội',
+              name: StringConst.listShop[0],
             ),
             _Item(
               url: 'https://goo.gl/maps/mmKiJSQXk1ERMQBC7',
-              name:
-                  'Kiot 16 Toà Nam, Rice City Linh Đàm, Hoàng Liệt, Hoàng Mai, Hà Nội',
+              name: StringConst.listShop[1],
             ),
             _Item(
               url: 'https://goo.gl/maps/BWkV2A38hD2J68adA',
-              name: '192 Phan Đình Phùng, Thành phố Thái Nguyên, Thái Nguyên',
+              name: StringConst.listShop[2],
             ),
             _Item(
               url: 'https://goo.gl/maps/agqVJjn5Y8iaUSNK9',
-              name:
-                  'cổng chợ chiều, Đ. Nội Thị 2, Ngô Quyền, Tiên Lữ, Hưng Yên',
+              name: StringConst.listShop[3],
+            ),
+            _Item(
+              url: '',
+              name: StringConst.listShop[4],
+            ),
+            _Item(
+              url: '',
+              name: StringConst.listShop[5],
             ),
           ],
         ),
@@ -64,7 +68,11 @@ class _Item extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomGestureDetector(
       onTap: () async {
-        if (!await launchUrl(Uri.parse(url))) throw 'Could not launch $url';
+        if (url == '') {
+          return null;
+        } else {
+          if (!await launchUrl(Uri.parse(url))) throw 'Could not launch $url';
+        }
       },
       child: Container(
         padding: EdgeInsets.all(8),

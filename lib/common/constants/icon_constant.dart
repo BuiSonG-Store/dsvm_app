@@ -18,4 +18,6 @@ class IconConst {
   static const String iconShoppingCart = '${path}icon_shopping_cart.svg';
 
   static const String iconSearch = '${path}icon_search.svg';
+  static const String mail = '${path}mail.png';
+  static const String user = '${path}user.png';
 }

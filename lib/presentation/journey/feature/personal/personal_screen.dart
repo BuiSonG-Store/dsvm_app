@@ -1,10 +1,7 @@
 import 'package:dsvm_app/common/constants/icon_constant.dart';
-import 'package:dsvm_app/common/constants/images_const.dart';
 import 'package:dsvm_app/common/constants/string_constants.dart';
 import 'package:dsvm_app/presentation/journey/feature/personal/widget/personal_item.dart';
-import 'package:dsvm_app/presentation/journey/feature/webview/webview_screen.dart';
 import 'package:dsvm_app/presentation/themes/theme_color.dart';
-import 'package:dsvm_app/presentation/themes/theme_text.dart';
 import 'package:dsvm_app/presentation/widgets/custom_scaffold.dart';
 import 'package:flutter/material.dart';
 
@@ -26,6 +23,10 @@ class PersonalScreen extends StatelessWidget {
     );
   }
 
+  void _goToEditPersonal() {
+    Routes.instance.navigateTo(RouteName.inforPersonal);
+  }
+
   @override
   Widget build(BuildContext context) {
     return CustomScaffold(
@@ -37,23 +38,14 @@ class PersonalScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            ItemPersonal(
-              onTap: () {},
-              description: '0335950503',
-              title: 'Bùi Nguyễn Nam Sơn',
-              styleTitle: AppTextTheme.medium20PxBlack,
-              styleDes:
-                  AppTextTheme.normalBlack.copyWith(color: AppColors.grey7),
-              icon: ImageConstant.logo,
-              heightIcon: 50,
-              widthIcon: 50,
-            ),
             SizedBox(height: 8),
             ItemPersonal(
-              icon: IconConst.location,
-              onTap: () {},
-              description: 'Quản lý địa chỉ giao hàng',
-              title: 'Địa chỉ của tôi',
+              icon: IconConst.user,
+              onTap: _goToEditPersonal,
+              title: 'Bùi Nguyễn Nam Sơn',
+              description: '0335950503',
+              haveDesSecond: true,
+              descriptionSecond: 'Địa chỉ 123 41434 123 1231233 ',
             ),
             SizedBox(height: 8),
             ItemPersonal(
@@ -74,6 +66,13 @@ class PersonalScreen extends StatelessWidget {
               title: 'Giới thiệu về chúng tôi',
               description: '',
               haveDes: false,
+            ),
+            ItemPersonal(
+              icon: IconConst.mail,
+              showIconRight: false,
+              onTap: () {},
+              title: 'Gửi email cho chúng tôi',
+              description: 'dacsanso1vietnam@gmail.com',
             ),
             ItemPersonal(
               icon: IconConst.info_app,

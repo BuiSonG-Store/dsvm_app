@@ -17,8 +17,7 @@ class RegionsProductScreen extends StatelessWidget {
       body: Expanded(
         child: TabViewBottom(
           haveDes: true,
-          desTitle: '*Vuốt sang hoặc chọn tên vùng miền để xem sản phẩm',
-          titleSize: 14.0,
+          desTitle: '*Vuốt, chọn tên vùng miền để xem sản phẩm',
           height: null,
           titlesTab: StringConst.listRegions,
           tabs: [

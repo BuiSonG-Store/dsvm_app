@@ -8,4 +8,5 @@ class RouteName {
   static const String allProductScreen = "AllProductScreen";
   static const String photoListViewerScreen = 'photoListViewerScreen';
   static const String detailProductScreen = 'detailProductScreen';
+  static const String inforPersonal = "inforPersonal";
 }

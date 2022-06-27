@@ -65,7 +65,7 @@ class _TabViewBottomState extends State<TabViewBottom> {
               isScrollable: true,
               unselectedLabelColor: AppColors.grey7,
               controller: widget.tabController,
-              labelColor: AppColors.greenText,
+              labelColor: AppColors.green,
               physics: widget.neverScroll
                   ? const NeverScrollableScrollPhysics()
                   : null,
@@ -80,7 +80,7 @@ class _TabViewBottomState extends State<TabViewBottom> {
                             textScaleFactor: 1,
                             overflow: TextOverflow.ellipsis,
                             style:
-                                TextStyle(fontSize: widget.titleSize ?? 12.0),
+                                TextStyle(fontSize: widget.titleSize ?? 14.0),
                           ),
                         ),
                       )
@@ -89,7 +89,7 @@ class _TabViewBottomState extends State<TabViewBottom> {
                           value,
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
-                          style: TextStyle(fontSize: widget.titleSize ?? 12.0),
+                          style: TextStyle(fontSize: widget.titleSize ?? 14.0),
                         ),
                       );
               }).toList(),
