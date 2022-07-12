@@ -1,18 +1,17 @@
+import 'package:dsvm_app/common/utils/common_utils.dart';
+import 'package:dsvm_app/data/model/product_model.dart';
+import 'package:dsvm_app/presentation/themes/theme_color.dart';
+import 'package:dsvm_app/presentation/themes/theme_text.dart';
+import 'package:dsvm_app/presentation/widgets/custom_gesturedetector.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shimmer/shimmer.dart';
-
-import '../../../../../../common/utils/common_utils.dart';
-import '../../../../../themes/theme_color.dart';
-import '../../../../../themes/theme_text.dart';
-import '../../../../../widgets/custom_gesturedetector.dart';
-import 'grid_view_product.dart';
 import 'item_product.dart';
 
 class LayoutDisplayRandomListProduct extends StatelessWidget {
   final Function(int? idCategory, String? title)? onTapSeeAll;
-  final Function(ProductModelV2 productEntity)? onItemtap;
-  final List<ProductModelV2>? data;
+  final Function(ProductModel productEntity)? onItemtap;
+  final List<ProductModel>? data;
   final String? labelTop;
   final String? textButton;
   final int? idCategory;
@@ -82,41 +81,15 @@ class LayoutDisplayRandomListProduct extends StatelessWidget {
           child: ListView.separated(
               padding: const EdgeInsets.symmetric(horizontal: 16),
               itemBuilder: (context, index) {
-                if (index == (data?.length ?? 0) - 1 &&
-                    (data?.length ?? 0) == 12 &&
-                    lastWidget == true) {
-                  return Row(
-                    children: [
-                      ItemWidget(
-                        oldModel: ProductModelV2(),
-                        widgetItem: widgetItem,
-                        sizeImage: sizeImage,
-                        onItemTap: (model) {},
-                      ),
-                      CustomGestureDetector(
-                        child: Padding(
-                          padding: const EdgeInsets.all(12),
-                          child: Text(
-                            'Xem\nthêm',
-                            style: AppTextTheme.normalBlue.copyWith(
-                              decoration: TextDecoration.underline,
-                            ),
-                          ),
-                        ),
-                        onTap: () {
-                          if (onTabLastWidget != null) {
-                            onTabLastWidget!();
-                          }
-                        },
-                      )
-                    ],
-                  );
-                }
-                return ItemWidget(
-                  oldModel: ProductModelV2(),
-                  widgetItem: widgetItem,
-                  sizeImage: sizeImage,
-                  onItemTap: onItemtap,
+                return Row(
+                  children: [
+                    ItemWidget(
+                      productModel: data![index],
+                      widgetItem: widgetItem,
+                      sizeImage: sizeImage,
+                      onItemTap: (model) {},
+                    ),
+                  ],
                 );
               },
               scrollDirection: Axis.horizontal,

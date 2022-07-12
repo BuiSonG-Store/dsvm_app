@@ -14,7 +14,7 @@ import '../global/global_app_cache.dart';
 import 'app_header.dart';
 import 'configs.dart';
 
-class  AppClient {
+class AppClient {
   AppHeader? header;
   final GlobalAppCache globalAppCatch;
   final LocalApp localApp;
@@ -46,45 +46,18 @@ class  AppClient {
   //   this.header = header;
   // }
 
-  Future<Map> get(
-    String endPoint, {
-    bool handleData = true,
-    bool reRun =
-        false, // = true. dùng trong TH token đc refresh lại và chạy lại
-  }) async {
+  Future<Map> get(String endPoint) async {
     await _checkConnectionAndPosition();
     var url = Uri.parse('${Configurations.host}$endPoint');
     Response? response;
-    String fullRequets = '';
     var data;
     try {
-      response = await http.get(url, headers: header?.toJson() ?? {}).timeout(
-          Duration(seconds: Configurations.connectTimeout), onTimeout: () {
-        throw TimeOutException();
-      });
-      fullRequets = 'endPoint: ${Configurations.host}$endPoint \n'
-          'Token: ${header?.accessToken} \n'
-          'Response: ${response.body} \n';
+      response = await http.get(url);
       data = json.decode(response.body);
-    } catch (e) {
-      if (e.runtimeType == TimeOutException) {
-        throw TimeOutException();
-      }
-      throw ServerException();
-    }
-
-    if (!handleData) {
       return data;
+    } catch (e) {
+      return {};
     }
-    bool checkExpired =
-        _handleErrorCode(data, fullRequest: fullRequets, isPost: false);
-    if (checkExpired) {
-      if (reRun) {
-        throw TokenExpiredException(errorText: fullRequets);
-      }
-      return await get(endPoint, handleData: handleData, reRun: true);
-    }
-    return data;
   }
 
   Future<Map> post(
@@ -159,7 +132,6 @@ class  AppClient {
     }
     return data;
   }
-
 
   Future _checkConnectionAndPosition() async {
     try {

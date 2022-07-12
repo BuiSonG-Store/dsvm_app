@@ -6,6 +6,12 @@ import '../../presentation/routes.dart';
 import '../../presentation/themes/theme_color.dart';
 
 class CommonUtil {
+
+  // check null, empty, false, zero
+  static bool isNull(dynamic input) {
+  return ["", null, false, 0].contains(input);
+  }
+
   static bool isPhone() {
     final data = MediaQueryData.fromWindow(WidgetsBinding.instance!.window);
     return data.size.shortestSide < 600;

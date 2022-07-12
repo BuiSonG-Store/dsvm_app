@@ -1,15 +1,20 @@
 import 'dart:async';
 import 'package:dsvm_app/common/navigation/route_names.dart';
+import 'package:dsvm_app/presentation/injector_container.dart';
+import 'package:dsvm_app/presentation/journey/feature/home/cubit/home_cubit.dart';
+import 'package:dsvm_app/presentation/journey/feature/home/cubit/home_states.dart';
 import 'package:dsvm_app/presentation/journey/feature/home/suggest_today/suggest_today.dart';
 import 'package:dsvm_app/presentation/journey/feature/home/suggest_today/widget/grid_view_product.dart';
 import 'package:dsvm_app/presentation/journey/feature/home/suggest_today/widget/list_view_product.dart';
 import 'package:dsvm_app/presentation/journey/feature/home/widget/home_appbar.dart';
 import 'package:dsvm_app/presentation/widgets/custom_refresh_indicator.dart';
+import 'package:dsvm_app/presentation/widgets/shimmer/common_shimmer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../common/argument/argument.dart';
 import '../../../routes.dart';
 import '../../../themes/theme_color.dart';
+import '../../../widgets/shimmer/common_shimmer_column.dart';
 
 class HomeScreenV2 extends StatefulWidget {
   @override
@@ -27,10 +32,12 @@ class _HomeScreenV2State extends State<HomeScreenV2> {
 
   /// chỉ cho phép lock khi app đã chạy background sau đó vào lại foreground
   bool _enableLock = false;
+  HomeCubit _homeCubit = injector<HomeCubit>();
 
   @override
   void initState() {
     //_scrollController.addListener(_scrollListener);
+    _homeCubit.getDataHomeCenter();
     _requestCallPermission();
     super.initState();
   }
@@ -151,6 +158,7 @@ class _HomeScreenV2State extends State<HomeScreenV2> {
             HomeAppBar(
               startSearch: _startSearch,
             ),
+
             Expanded(
               child: ListView(
                 shrinkWrap: true,
@@ -160,34 +168,76 @@ class _HomeScreenV2State extends State<HomeScreenV2> {
                 children: [
                   Column(
                     children: [
-                      LayoutDisplayRandomListProduct(
-                        data: oldModels,
-                        labelTop: "Sản phẩm HOT",
-                        onTapSeeAll: (_, title) {
-                          Routes.instance.navigateTo(RouteName.allProductScreen,
-                              arguments: ArgumentAllProductCommon(
-                                  title: title,
-                                  url: 'productapp/GetBestBuyNew?'));
-                        },
-                        onItemtap: (value) {
-                          Routes.instance
-                              .navigateTo(RouteName.detailProductScreen);
-                        },
-                      ),
-                      LayoutDisplayRandomListProduct(
-                        data: oldModels,
-                        labelTop: "Sản phẩm mới",
-                        onTapSeeAll: (_, title) {
-                          Routes.instance.navigateTo(RouteName.allProductScreen,
-                              arguments: ArgumentAllProductCommon(
-                                  title: title,
-                                  url: 'productapp/GetBestBuyNew?'));
-                        },
-                        onItemtap: (value) {
-                          Routes.instance
-                              .navigateTo(RouteName.detailProductScreen);
-                        },
-                      ),
+                      BlocBuilder<HomeCubit, HomeState>(
+                          bloc: _homeCubit,
+                          builder: (_, state){
+                            if(state is HomeGettingDataState){
+                              return Center(
+                                child: Column(
+                                  children: [
+                                    CommonShimmerColumn(
+                                      numberItem: 2,
+                                    ),
+                                    CommonShimmerColumn(
+                                      numberItem: 2,
+                                    )
+                                  ],
+                                ),
+
+
+                              );
+                            }
+
+                            if(state is HomeGotDataState){
+                              return
+                                Column(
+                                children: [
+                                  LayoutDisplayRandomListProduct(
+                                    data: state.productHots,
+                                    labelTop: "Sản phẩm HOT",
+                                    onTapSeeAll: (_, title) {
+                                      Routes.instance.navigateTo(RouteName.allProductScreen,
+                                          arguments: ArgumentAllProductCommon(
+                                              title: title,
+                                              url: 'productapp/GetBestBuyNew?'));
+                                    },
+                                    onItemtap: (value) {
+                                      Routes.instance
+                                          .navigateTo(RouteName.detailProductScreen);
+                                    },
+                                  ),
+                                  LayoutDisplayRandomListProduct(
+                                    data: state.productNews,
+                                    labelTop: "Sản phẩm mới",
+                                    onTapSeeAll: (_, title) {
+                                      Routes.instance.navigateTo(RouteName.allProductScreen,
+                                          arguments: ArgumentAllProductCommon(
+                                              title: title,
+                                              url: 'productapp/GetBestBuyNew?'));
+                                    },
+                                    onItemtap: (value) {
+                                      Routes.instance
+                                          .navigateTo(RouteName.detailProductScreen);
+                                    },
+                                  )
+                                ],
+                              );
+                            }
+                            return Center(
+                              child: Column(
+                                children: [
+                                  CommonShimmerColumn(
+                                    numberItem: 2,
+                                  ),
+                                  CommonShimmerColumn(
+                                    numberItem: 2,
+                                  )
+                                ],
+                              ),
+
+
+                            );
+                          }),
                       SuggestToday(scrollController: _scrollController)
                     ],
                   ),

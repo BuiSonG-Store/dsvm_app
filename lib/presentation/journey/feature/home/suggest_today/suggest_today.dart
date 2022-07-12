@@ -1,3 +1,4 @@
+import 'package:dsvm_app/data/model/product_model.dart';
 import 'package:dsvm_app/presentation/journey/feature/home/suggest_today/widget/grid_view_product.dart';
 import 'package:dsvm_app/presentation/themes/theme_color.dart';
 import 'package:dsvm_app/presentation/themes/theme_text.dart';
@@ -24,6 +25,7 @@ class _SuggestTodayState extends State<SuggestToday> {
   // SuggestTodayCubit _suggestTodayCubit = injector<SuggestTodayCubit>();
   bool _enableContinueLoadMore = true;
   bool _runFirst = true;
+  List<ProductModel> listModel =[];
 
   List<ProductModelV2> oldModels = [
     ProductModelV2(),
@@ -90,7 +92,7 @@ class _SuggestTodayState extends State<SuggestToday> {
         Column(
           children: [
             OldGridview(
-              models: oldModels,
+              models: listModel,
               controller: widget.scrollController,
               backgroundColor: AppColors.white,
             )

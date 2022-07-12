@@ -1,4 +1,5 @@
 import 'package:dsvm_app/common/constants/icon_constant.dart';
+import 'package:dsvm_app/data/model/product_model.dart';
 import 'package:dsvm_app/presentation/journey/feature/detail_product/widget/custom_sliver_appbar.dart';
 import 'package:dsvm_app/presentation/themes/theme_color.dart';
 import 'package:dsvm_app/presentation/themes/theme_text.dart';
@@ -21,31 +22,7 @@ class DetailProductScreen extends StatefulWidget {
 
 class _DetailProductScreenState extends State<DetailProductScreen> {
 
-  List<ProductModelV2> oldModels = [
-    ProductModelV2(),
-    ProductModelV2(),
-    ProductModelV2(),
-    ProductModelV2(),
-    ProductModelV2(),
-    ProductModelV2(),
-    ProductModelV2(),
-    ProductModelV2(),
-    ProductModelV2(),
-    ProductModelV2(),
-    ProductModelV2(),
-    ProductModelV2(),
-    ProductModelV2(),
-    ProductModelV2(),
-    ProductModelV2(),
-    ProductModelV2(),
-    ProductModelV2(),
-    ProductModelV2(),
-    ProductModelV2(),
-    ProductModelV2(),
-    ProductModelV2(),
-    ProductModelV2(),
-    ProductModelV2()
-  ];
+  List<ProductModel> listModel =[];
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -216,7 +193,7 @@ class _DetailProductScreenState extends State<DetailProductScreen> {
                       ),
 
                       LayoutDisplayRandomListProduct(
-                        data: oldModels,
+                        data: listModel,
                         labelTop: "Có thể bạn quan tâm",
                         onTapSeeAll: (_, title) {
                           Routes.instance.navigateTo(RouteName.allProductScreen,
@@ -231,7 +208,7 @@ class _DetailProductScreenState extends State<DetailProductScreen> {
                       ),
 
                       LayoutDisplayRandomListProduct(
-                        data: oldModels,
+                        data: listModel,
                         labelTop: "Có thể bạn không quan tâm",
                         onTapSeeAll: (_, title) {
                           Routes.instance.navigateTo(RouteName.allProductScreen,

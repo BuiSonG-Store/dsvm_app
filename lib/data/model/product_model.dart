@@ -4,7 +4,7 @@ class ProductModel {
   String? image;
 
   ProductModel.fromJson(Map<String, dynamic> json) {
-    id = json['$id'];
+    id = json['\$id'];
     product =
     json['product'] != null ? new Product.fromJson(json['product']) : null;
     image = json['image'];
@@ -12,7 +12,7 @@ class ProductModel {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['$id'] = this.id;
+    data['\$id'] = this.id;
     if (this.product != null) {
       data['product'] = this.product!.toJson();
     }
@@ -22,12 +22,12 @@ class ProductModel {
 }
 
 class Product {
-  String? id;
-  int? $id;
+  int? id;
+  String? $id;
   String? name;
   String? description;
-  int? price;
-  int? priceSale;
+  double? price;
+  double? priceSale;
   String? dvt;
   int? amount;
   String? weight;
@@ -39,6 +39,7 @@ class Product {
   dynamic category;
   dynamic region;
   dynamic province;
+  String? $ref;
 
 
   Product.fromJson(Map<String, dynamic> json) {
@@ -59,6 +60,7 @@ class Product {
     category = json['category'];
     region = json['region'];
     province = json['province'];
+    $ref = json['\$ref'];
   }
 
   Map<String, dynamic> toJson() {
@@ -80,6 +82,7 @@ class Product {
     data['category'] = this.category;
     data['region'] = this.region;
     data['province'] = this.province;
+    data['\$ref'] = this.$ref;
     return data;
   }
 }

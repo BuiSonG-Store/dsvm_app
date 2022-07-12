@@ -1,5 +1,6 @@
 import 'dart:math';
 import 'package:dsvm_app/common/navigation/route_names.dart';
+import 'package:dsvm_app/data/model/product_model.dart';
 import 'package:dsvm_app/presentation/journey/feature/home/suggest_today/widget/item_product.dart';
 import 'package:dsvm_app/presentation/routes.dart';
 import 'package:flutter/material.dart';
@@ -11,7 +12,7 @@ import '../../../../../themes/theme_color.dart';
 
 class OldGridview extends StatelessWidget {
   final bool limitItem;
-  final List<ProductModelV2> models;
+  final List<ProductModel> models;
   final bool ableScroll;
   final ScrollController? controller;
   final Color backgroundColor;
@@ -55,7 +56,7 @@ class OldGridview extends StatelessWidget {
           ),
           itemBuilder: (context, index) {
             return ItemWidget(
-              oldModel: models[index],
+              productModel: models[index],
               widgetItem: widgetItem,
               sizeImage: sizeImage,
               onItemTap: (value){

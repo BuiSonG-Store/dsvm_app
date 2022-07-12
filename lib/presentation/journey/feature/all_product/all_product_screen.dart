@@ -1,3 +1,4 @@
+import 'package:dsvm_app/data/model/product_model.dart';
 import 'package:dsvm_app/presentation/themes/theme_color.dart';
 import 'package:flutter/material.dart';
 
@@ -14,31 +15,7 @@ class AllProductScreen extends StatefulWidget {
 
 class _AllProductScreenState extends State<AllProductScreen> {
   ScrollController _controller = ScrollController();
-  List<ProductModelV2> oldModels = [
-    ProductModelV2(),
-    ProductModelV2(),
-    ProductModelV2(),
-    ProductModelV2(),
-    ProductModelV2(),
-    ProductModelV2(),
-    ProductModelV2(),
-    ProductModelV2(),
-    ProductModelV2(),
-    ProductModelV2(),
-    ProductModelV2(),
-    ProductModelV2(),
-    ProductModelV2(),
-    ProductModelV2(),
-    ProductModelV2(),
-    ProductModelV2(),
-    ProductModelV2(),
-    ProductModelV2(),
-    ProductModelV2(),
-    ProductModelV2(),
-    ProductModelV2(),
-    ProductModelV2(),
-    ProductModelV2()
-  ];
+  List<ProductModel> listModel =[];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,7 +27,7 @@ class _AllProductScreenState extends State<AllProductScreen> {
         child: Column(
           children: [
             OldGridview(
-              models: oldModels,
+              models: listModel,
               controller: _controller,
               backgroundColor: AppColors.white,
             )

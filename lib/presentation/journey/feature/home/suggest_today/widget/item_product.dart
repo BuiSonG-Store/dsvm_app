@@ -1,5 +1,7 @@
 import 'package:dsvm_app/common/constants/app_const.dart';
-import 'package:dsvm_app/presentation/journey/feature/home/suggest_today/widget/grid_view_product.dart';
+import 'package:dsvm_app/common/network/configs.dart';
+import 'package:dsvm_app/common/utils/format_util.dart';
+import 'package:dsvm_app/data/model/product_model.dart';
 import 'package:dsvm_app/presentation/themes/theme_color.dart';
 import 'package:dsvm_app/presentation/widgets/custom_cache_image_network.dart';
 import 'package:dsvm_app/presentation/widgets/custom_gesturedetector.dart';
@@ -9,14 +11,14 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../themes/theme_text.dart';
 
 class ItemWidget extends StatelessWidget {
-  final ProductModelV2 oldModel;
+  final ProductModel productModel;
   final double widgetItem;
   final double sizeImage;
-  final Function(ProductModelV2 oldModel)? onItemTap;
+  final Function(ProductModel oldModel)? onItemTap;
 
   const ItemWidget({
     Key? key,
-    required this.oldModel,
+    required this.productModel,
     required this.widgetItem,
     required this.sizeImage,
     this.onItemTap,
@@ -35,7 +37,7 @@ class ItemWidget extends StatelessWidget {
       Padding(
         padding: const EdgeInsets.all(1.0),
         child: CustomCacheImageNetwork(
-          url:  'http://42.112.36.78:8888/uploads/trau_gac_b224202067.png',
+          url:  '${Configurations.hostImage}${productModel.image}',
           width: sizeImage - 2,
           height: sizeImage - 2,
           fit: BoxFit.cover,
@@ -50,7 +52,7 @@ class ItemWidget extends StatelessWidget {
     return CustomGestureDetector(
       onTap: () {
         if (onItemTap != null) {
-          onItemTap!(oldModel);
+          onItemTap!(productModel);
           return;
         }
       },
@@ -81,7 +83,7 @@ class ItemWidget extends StatelessWidget {
             ),
             const SizedBox(height: 8),
             Text(
-              "Thịt trâu gác bếp chuẩn vị Thanh Hóa quê tao",
+              productModel.product?.name ?? "",
               maxLines: 2,
               style: AppTextTheme.mediumBlack.copyWith(
                 fontSize: 15,
@@ -92,7 +94,7 @@ class ItemWidget extends StatelessWidget {
             Row(
               children: [
                 Text(
-                  "40.000đ",
+                   "${FormatUtils.formatCurrencyDoubleToString(productModel.product?.price)}",
                   maxLines: 1,
                   style: AppTextTheme.mediumBlack.copyWith(
                       fontSize: 16,
@@ -101,7 +103,7 @@ class ItemWidget extends StatelessWidget {
                   overflow: TextOverflow.ellipsis,
                 ),
                 Text(
-                  " / kg",
+                  " / ${productModel.product?.dvt ?? " kg"}",
                   maxLines: 1,
                   style: AppTextTheme.mediumBlack.copyWith(
                       fontSize: 15,
